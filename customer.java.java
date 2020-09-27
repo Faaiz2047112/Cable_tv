@@ -2,14 +2,19 @@ import java.util.Random;
 import java.util.Scanner;
 class customer
 {
-	int Id;
+	int Sr_no;
 	String name;
 	int mobile_number;
+	static String country ;
+	static
+	{
+		country = "INDIA";
+	}
 	public void read()
 	{
 			Scanner scn = new Scanner(System.in);
 			Random rand = new Random();
-			Id = rand.nextInt(1000);
+			Sr_no = rand.nextInt(1000);
 			System.out.print("enter the name = ");
 			name=scn.nextLine();
 			System.out.print("enter the mobile number");
@@ -17,7 +22,7 @@ class customer
 	}
 	public void display()
 	{
-		System.out.println("CustomerId - "+this.Id);
+		System.out.println("CustomerId - "+this.Sr_no);
 		System.out.println("Name -"+this.name);
 		System.out.println("mobile number"+this.mobile_number);
 	}
