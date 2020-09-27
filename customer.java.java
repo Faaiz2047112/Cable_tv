@@ -1,43 +1,71 @@
+import java.util.Random;
 import java.util.Scanner;
-import java.util.*;
-import java.io.*;
-public class customer
+class customer
 {
-	public static void main(String args[])
-    {
-		int number;
-		Scanner input = new Scanner(System.in);
-		Scanner stdin = new Scanner(System.in);
-		int[] cust_id = new int[20];
-
-		int[] cust_mobile_no = new int[11];
-		System.out.println("enter the number of the customer");
-		number=stdin.nextInt();
-		String[] cust_name = new String[20];
-	   for(int i=0;i<number;i++)
+	int Id;
+	String name;
+	int mobile_number;
+	public void read()
 	{
-		System.out.println("\n Enter the CustomerName: ");
-	   cust_name[i] = stdin.next();
-           System.out.println("\n Enter the CustomerId: ");
-	   cust_id[i] = stdin.nextInt();            
-           System.out.println("\n Enter the mobile number: ");
-	   cust_mobile_no[i] = stdin.nextInt();
+			Scanner scn = new Scanner(System.in);
+			Random rand = new Random();
+			Id = rand.nextInt(1000);
+			System.out.print("enter the name = ");
+			name=scn.nextLine();
+			System.out.print("enter the mobile number");
+			mobile_number=Integer.parseInt(scn.nextLine());
 	}
-
-	PrintcustomerDetails(cust_id,cust_name,cust_mobile_no);
-	input.close();
-	stdin.close();
-    }
-	public static void PrintcustomerDetails(int[] cust_id,String[] cust_name,int[] cust_mobile_no)
-    {
-        int n = cust_name.length;
-	System.out.println("\n\ncustomer details:  ");
-        for (int i = 0; i < n; i++) 
+	public void display()
 	{
-		if (cust_name[i] != null)
+		System.out.println("CustomerId - "+this.Id);
+		System.out.println("Name -"+this.name);
+		System.out.println("mobile number"+this.mobile_number);
+	}
+}
+class makes_order extends customer
+{
+		int order_id ;
+		String order_name;
+		int order_cost;
+	
+	public void read()
+	{
+		super.read();
+		Scanner scn = new Scanner(System.in);
+		System.out.println("enter the order_id = ");
+		order_id=Integer.parseInt(scn.nextLine());
+		System.out.println("enter the name");
+		order_name=scn.nextLine();
+		System.out.print("enter the cost");
+		order_cost=Integer.parseInt(scn.nextLine());
+		
+	}
+	public void display()
+	{
+		super.display();
+		System.out.println("order id - "+this.order_id);
+		System.out.println("order name - "+this.order_name);
+		System.out.println("order cost - "+this.order_cost);
+	}
+}
+
+public class Customer1
+{
+		
+	public static void main(String args[])
+	{
+		int n,i;
+		makes_order obj=new makes_order();
+		System.out.print("Enter the number of customer:");
+		Scanner input = new Scanner(System.in);
+		n=input.nextInt();
+		makes_order[] gs=new makes_order[n];
+
+		for(i=0;i<n;i++)
 		{
-                 System.out.println("customer id: "+cust_id[i]+" customer Name: "+cust_name[i]+" customer mobile number: "+cust_mobile_no[i]);
-    		}  
-       }
-    }
+			gs[i]= new makes_order();
+			System.out.println("customer Details:"+(i+1));
+			gs[i].read();
+		}
+	}
 }
