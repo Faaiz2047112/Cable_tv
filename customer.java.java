@@ -115,7 +115,4 @@ public class Customer1
 			gs[i].read();
 		}
 	}
-}			gs[i].read();
-		}
-	}
 }
