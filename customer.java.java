@@ -38,6 +38,7 @@ class customer
 		System.out.println("address - "+this.address);
 		System.out.println("email - "+this.email);
 	}
+	
 }
 class operator extends customer
 {
@@ -63,6 +64,15 @@ class operator extends customer
 		Ope_email=scn.nextLine();
 	}
 	public void display()
+	{
+			super.display();
+			System.out.println("operator id - "+this.Ope_id);
+			System.out.println("operator name - "+this.Ope_name);
+			System.out.println("operator mobile number -"+this.Ope_Mobilenumber);
+			System.out.println("operator address - "+this.Ope_address);
+			System.out.println("operator email - "+this.Ope_email);
+	}
+	public void display(int ope_id)
 	{
 			super.display();
 			System.out.println("operator id - "+this.Ope_id);
