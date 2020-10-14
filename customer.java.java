@@ -4,7 +4,7 @@ abstract class customer
 {
 	int Sr_no;
 	int id;
-	String name;
+	StringBuffer name=new StringBuffer();
 	int mobile_number;
 	String address;
 	String email;
@@ -21,7 +21,7 @@ abstract class customer
 			System.out.println("enter the ID ");
 			id=Integer.parseInt(scn.nextLine());
 			System.out.print("enter the name = ");
-			name=scn.nextLine();
+			name.append(scn.nextLine());
 			System.out.print("enter the mobile number");
 			mobile_number=Integer.parseInt(scn.nextLine());
 			System.out.println("enter the customer address");
