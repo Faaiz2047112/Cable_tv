@@ -1,6 +1,11 @@
 import java.util.Random;
 import java.util.Scanner;
-abstract class customer
+interface method
+	{
+		public void read();
+		public void display();
+	}
+class customer implements method
 {
 	int Sr_no;
 	int id;
@@ -13,7 +18,7 @@ abstract class customer
 	{
 		country = "INDIA";
 	}
-	public  void read()
+	public void read()
 	{
 			Scanner scn = new Scanner(System.in);
 			Random rand = new Random();
@@ -41,7 +46,7 @@ abstract class customer
 	}
 	
 }
-class operator extends customer
+class  operator extends customer 
 {
 		int Ope_id;
 		String Ope_name;
@@ -111,5 +116,17 @@ public class Customer1
 			gs[i].read();
 			gs[i].display();
 		}
-	}
+		for(i=0;i<n;i++)	
+      System.out.println("Elements in the array are:: ");
+      Scanner sc = new Scanner(System.in);
+      System.out.println("Enter the index of the required element ::");
+      try {
+         int element = sc.nextInt();
+         System.out.println("Element in the given index is :: ");
+	gs[element].display();
+      } catch(ArrayIndexOutOfBoundsException e) {
+         System.out.println("The index you have entered is invalid");
+      }
+	  
+   }
 }
